@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace Satori\Data;
 
 /**
- * eXtensible Data Object.
+ * Extendable Data Object.
  */
 class Xdo
 {
@@ -72,7 +72,7 @@ class Xdo
     public function __get(string $name)
     {
         $name = $this->aliases[$name] ?? $name;
-        if (isset($this->properties[$name])) {
+        if (array_key_exists($name, $this->properties)) {
             $value = $this->properties[$name];
 
             return ($this->protect)($value);
